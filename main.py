@@ -13,8 +13,9 @@ women_and_children_df = df.loc[(df['Sex'] == 'female') | (df['Age'] <= 15)]
 adult_males_df = df.loc[(df['Sex'] == 'male') & (df['Age'] > 15)]
 
 # CodeGrade step3
-first_class_df = df.loc[df['Pclass'] == '1']
-second_third_class_df = df.loc[df['Pclass'] != '1']
+df['Pclass'] = pd.to_numeric(df['Pclass'], errors='coerce')
+first_class_df = df.loc[df['Pclass'] == 1]
+second_third_class_df = df.loc[df['Pclass'] != 1]
 
 # CodeGrade step4
 query_string = 'PassengerId >= 500'
